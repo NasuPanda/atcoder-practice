@@ -2,6 +2,8 @@
 using namespace std;
 
 // https://atcoder.jp/contests/abc139/tasks/abc139_b
+// そこそこ苦戦した
+
 // A 個口の電源タップを何個使うと B口以上に拡張出来るか。
 
 int main() {

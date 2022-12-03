@@ -2,8 +2,21 @@
 using namespace std;
 
 int main() {
-  // 配列の初期化
-  vector<int> vec(N); // 要素数3の配列
+  /* 配列 */
+  // https://atcoder.jp/contests/apg4b/tasks/APG4b_n
+  // 初期化: 要素数の指定は必須
+  vector<int> vec(N);
+  // 2次元 : vector<vector<要素の型>> 変数名(1次元の要素数, vector<要素の型>(2次元の要素数, 初期値)) 初期値は省略可能
+  vector<vector<int>> data(3, vector<int>(4)); // 3 × 4 の int型2次元配列
+  vector<vector<int>> data(N);  // N×0 の配列(後から要素を追加するときなど)
+  // 代入: 初期化時に代入することももちろん可能
+  vec = {1,2,3};
+  // 長さを求める
+  vec.size()
+  // ソート(昇順)
+  sort(vec.begin(), vec.end());
+  // ソート(降順): sort => reverse
+  reverse(vec.begin(), vec.end());
 
   // 範囲for文
   vector<int> a = {1, 3, 2, 5};
@@ -11,15 +24,6 @@ int main() {
     cout << x << endl;
   }
 
-  // 2次元配列
-  // vector<vector<要素の型>> 変数名(1次元の要素数, vector<要素の型>(2次元の要素数, 初期値)) 初期値は省略可能
-  vector<vector<int>> data(3, vector<int>(4)); // 3 × 4 の int型2次元配列
-  vector<vector<int>> data(N);  // N×0 の配列(後から要素を追加するときなど)
-  vector<vector<int>> data = {  // 要素を指定して初期化
-    {7, 4, 0, 8},
-    {2, 0, 3, 5},
-    {6, 1, 7, 0}
-  };
 
   // 参照(とりあえず安全で制約の厳しいポインタだと思えばいい)
   int a = 3;
@@ -61,6 +65,7 @@ int main() {
   // 優先度付きキュー(最も大きいものを取り出す処理が出来る) priority_queue<型> 変数名;
   // 小さい順 priority_queue priority_queue<型, vector<型>, greater<型>> 変数名;
 
+
   // ビット演算: https://atcoder.jp/contests/apg4b/tasks/APG4b_ac
   // bitset<定数> [変数名](任意: 最初のビット列)
   // 定数には const 修飾子で定義した値が使える
@@ -73,6 +78,8 @@ int main() {
   // 1を3ビット左シフトするとビット列は1000, つまり 2**3 になる。
   // 2**k の値を得たい時に 1<<k という書き方をすることがよくある。
 
+
+  /*マクロ*/
   // マクロ(define ディレクティブ)
   // 単純にプログラムを置換する性質上、大規模な開発では避けることが多い
   #define my_cout cout <<
@@ -83,13 +90,13 @@ int main() {
   #define all(v) v.begin(), v.end()
   #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 
-  // ラムダ式
+  /*ラムダ式*/
   // auto 関数名 = [](引数の型1 引数名1, 引数の型2, 引数名2, ...) { 関数の処理 };
   auto my_min = [](int a, int b) {
     if (a < b) { return a; }
     else { return b; }
   };
 
-  // 順列の全列挙
+  // 順列の全列挙P
   // next_permutation を使う
 }

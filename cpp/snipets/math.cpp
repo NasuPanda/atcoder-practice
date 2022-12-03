@@ -25,3 +25,6 @@ cout << *min_element(c + 1, c + N + 1) << endl;
 /* 平方根,べき乗 */
 pow(x, y);
 sqrt(x);
+
+
+/* 階乗(factorial) */

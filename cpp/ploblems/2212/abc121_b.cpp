@@ -19,7 +19,7 @@ int main() {
     // 定数の配列Bを用意
     vector<int> B(M);
     rep(i, M) cin >> B.at(i);
-    
+
     // 探索開始
     rep(i, N) {
         // 初期化
@@ -35,7 +35,7 @@ int main() {
         solver += C;
         if (solver > 0) ans++;
     }
-    
+
     cout << ans << endl;
 }
 

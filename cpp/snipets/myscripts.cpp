@@ -3,7 +3,7 @@
 using namespace std;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 
-// https://atcoder.jp/contests/abc074/tasks/abc074_b
+// URL
 // 感想
 
 int main() {
@@ -12,7 +12,7 @@ int main() {
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-
+// 整数 * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 /* 素数判定: √N 以下の値で割り切れなければ √N以上の値で割り切れることは無い性質を利用する */
 bool is_prime(long long N) {
     if (N == 1) return false;
@@ -21,7 +21,6 @@ bool is_prime(long long N) {
     }
     return true;
 }
-
 
 /* 約数全列挙: 約数は[小さい値・大きい値の組合せ][√N**2]しか存在しない性質から, √Nを境界値として利用する */
 vector<long long> enum_divisors(long long N) {
@@ -38,7 +37,15 @@ vector<long long> enum_divisors(long long N) {
     sort(res.begin(), res.end());
     return res;
 }
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+/* 偶奇判定 */
+{
+    int N = 10;
+    // & 単体: ビット演算(AND)
+    // N &1 : 0b000...1 AND N ということ。Nの最下位ビットが1/0(奇/偶)によって結果が変わる。
+    if(N & 1) cout << "奇数の場合の処理";
+}
 
 /* int 型の配列から最小の値を返す */
 int return_min(vector<int> vec) {
@@ -50,6 +57,7 @@ int return_min(vector<int> vec) {
     }
     return minx;
 }
+
 
 /* 最小値と最大値を取得する */
 sort(vec.begin(), vec.end());

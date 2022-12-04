@@ -4,7 +4,7 @@ using namespace std;
 int main() {
   /* 配列 */
   // https://atcoder.jp/contests/apg4b/tasks/APG4b_n
-  // 初期化: 要素数の指定は必須
+  // 初期化: 要素数の指定をしておくと `.at` でアクセス出来るようになる
   vector<int> vec(N);
   // 2次元 : vector<vector<要素の型>> 変数名(1次元の要素数, vector<要素の型>(2次元の要素数, 初期値)) 初期値は省略可能
   vector<vector<int>> data(3, vector<int>(4)); // 3 × 4 の int型2次元配列

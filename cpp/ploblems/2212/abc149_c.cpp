@@ -18,10 +18,11 @@ int main() {
     cin >> X;
 
     while(true) {
-        X++;
+        // Xが素数である場合も考慮する
         if(is_prime(X)) {
             cout << X;
             return 0;
         }
+        X++;
     }
 }

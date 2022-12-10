@@ -39,14 +39,16 @@ vector<long long> enum_divisors(long long N) {
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-/* 偶奇判定 */
+// 偶奇判定 * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 {
     int N = 10;
     // & 単体: ビット演算(AND)
     // N &1 : 0b000...1 AND N ということ。Nの最下位ビットが1/0(奇/偶)によって結果が変わる。
     if(N & 1) cout << "奇数の場合の処理";
 }
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+// 最大最小 min/max * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 /* int 型の配列から最小の値を返す */
 int return_min(vector<int> vec) {
     // 適当な大きい値
@@ -58,12 +60,24 @@ int return_min(vector<int> vec) {
     return minx;
 }
 
+/* 最小値/最大値のみ取得 */
+// min_element は範囲の中で最小の要素の位置を指すイテレータを返す。
+// イテレータに * をつけるとその位置の値にアクセス出来る。
+int minNumber = *min_element(numbers.begin(), numbers.end());
 
 /* 最小値と最大値を取得する */
 sort(vec.begin(), vec.end());
 int minVec = vec[0], maxVec = vec[N-1];
 
+/* 最小値のインデックスを取得する */
+int getMinValueIndex(vector<int> x) {
+    vector<int>::iterator iter = min_element(x.begin(), x.end());
+    return distance(x.begin(), iter);
+}
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+// 存在判定 * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 /*対象の値が存在する場合そのインデックスを、存在しなければ-1を返す*/
 int findIndex(vector<int> vec, int value) {
     rep(i, vec.size()) {
@@ -73,3 +87,13 @@ int findIndex(vector<int> vec, int value) {
     }
     return -1;
 }
+
+/* 配列に要素が存在するか判定 */
+{
+    bool exists = find(begin(arr), end(arr), target) != end(arr);
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+/* シーケンス生成 */
+vector<int> nums(5); // 先にスペースを確保しておく必要がある
+iota(nums.begin(), nums.end(), 0); // 0~4 のシーケンスを生成

@@ -59,6 +59,9 @@ using namespace std;
     sort(vec.begin(), vec.end());
     // ソート(降順): sort 後に reverse
     reverse(vec.begin(), vec.end());
+    // ソート(降順)
+    sort(a.begin(), a.end(), greater<int>());
+
 
     // pair のソート
     // .first の昇順でソートする
@@ -121,6 +124,13 @@ using namespace std;
     vvi data = (10, vi(20)) // 10 * 20 の2次元配列
 }
 
+/* 文字列 */
+{
+  // アルファベットか判定
+  isalpha();
+  // 指定範囲の文字列を取りだす
+  S.substr(開始位置, 取り出す長さ);
+}
 
 /* 仕様 */
 {

@@ -4,16 +4,31 @@ using namespace std;
 /* データ型 */
 {
     /* 配列 */
-    // https://atcoder.jp/contests/apg4b/tasks/APG4b_n
     // 初期化: 要素数の指定をしておくと `.at` でアクセス出来るようになる
     vector<int> vec(N);
+
     // 2次元 : vector<vector<要素の型>> 変数名(1次元の要素数, vector<要素の型>(2次元の要素数, 初期値)) 初期値は省略可能
     vector<vector<int>> data(3, vector<int>(4)); // 3 × 4 の int型2次元配列
     vector<vector<int>> data(N);  // N×0 の配列(後から要素を追加するときなど)
+
     // 代入: 初期化時に代入することももちろん可能
     vec = {1,2,3};
+
     // 長さを求める
     vec.size()
+
+    // 値の参照 (要素への参照を返すのでそのまま変更可能)
+    vec.at(0); // [] は範囲外の場合エラーを返さないので非推奨
+
+    // 値の削除
+    v.erase(cbegin(v) + 1); // v.at(1) の要素を削除
+
+    // 連番 シーケンス 生成
+    vector<int> nums(5);
+    iota(nums.begin(), nums.end(), 0); // 0~4のシーケンス生成
+
+    // カウント
+    int n_count = std::count(v.begin(), v.end(), 4);
 
 
     /* ペア */
@@ -100,6 +115,12 @@ using namespace std;
     // 1を3ビット左シフトするとビット列は1000, つまり 2**3 になる。
     // 2**k の値を得たい時に 1<<k という書き方をすることがよくある。
     1 << 3
+
+    /* 重複削除 */
+    // uniqueは元の配列の長さに変更を加えないため、ゴミが残る。ゴミの末尾のポインタを返す。
+    // そこで、予めソートしてからunique、eraseでゴミを削除する。
+    sort(vec.begin(), vec.end());
+    vec.erase(unique(vec.begin(), vec.end()), vec.end());
 }
 
 
@@ -111,11 +132,13 @@ using namespace std;
     auto vec_copy = vector;
     for (auto elem: vec_copy) cout << elem << endl; // elem は int型
 
-    /* 型操作 */
-    // キャスト: string => int
+    /* キャスト */
+    // string => int
     atoi("123".c_str()) // *char 型を渡す必要がある
-    // 型判定
-    100 == int(100) // int 型に変換した値と等しいなら整数と言える
+
+    /* 型判定 */
+    // 文字が数字かどうか
+    isdigit('1');
 
     /* 型エイリアス */
     // ex: 多次元配列の宣言が簡単になる
@@ -130,10 +153,15 @@ using namespace std;
   isalpha();
   // 指定範囲の文字列を取りだす
   S.substr(開始位置, 取り出す長さ);
+  // char ⇔ int
+  int('a'), int('z'), char(97), char(122); // 97~122, a~z
 }
 
 /* 仕様 */
 {
+    /* 三項演算子 */
+    true ? "trueのとき" : "falseのとき";
+
     /* 定数 */
     // タプル型へのアクセス, ビット演算などに使える
     const A = 10;

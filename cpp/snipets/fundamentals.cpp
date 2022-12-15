@@ -119,7 +119,11 @@ using namespace std;
 
     /* キャスト */
     // string => int
-    atoi("123".c_str()) // *char 型を渡す必要がある
+    stoi("123"); // *char 型を渡す必要がある
+    // char => int
+    int('10' - '0'); // 9
+    // int => string
+    to_string(10);
 
     /* 型判定 */
     // 文字が数字かどうか

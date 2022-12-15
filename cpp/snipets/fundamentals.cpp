@@ -28,7 +28,10 @@ using namespace std;
     iota(nums.begin(), nums.end(), 0); // 0~4のシーケンス生成
 
     // カウント
-    int n_count = std::count(v.begin(), v.end(), 4);
+    int n_count = count(v.begin(), v.end(), 4);
+
+    // 最後の要素を取得
+    *rbegin(vec);
 
 
     /* ペア */

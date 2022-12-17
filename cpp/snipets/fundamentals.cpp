@@ -136,7 +136,7 @@ using namespace std;
     // ex: 多次元配列の宣言が簡単になる
     using vi = vector<int>;
     using vvi = vector<vi>;
-    vvi data = (10, vi(20)) // 10 * 20 の2次元配列
+    vvi data(10, vi(20)) // 10 * 20 の2次元配列
 }
 
 /* 文字列 */

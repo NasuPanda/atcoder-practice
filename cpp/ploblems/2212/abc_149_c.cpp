@@ -3,7 +3,6 @@ using namespace std;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 
 // https://atcoder.jp/contests/abc149/tasks/abc149_c
-// 
 
 bool is_prime(long long N) {
     if (N == 1) return false;

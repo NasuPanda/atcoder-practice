@@ -97,3 +97,18 @@ int findIndex(vector<int> vec, int value) {
 /* シーケンス生成 */
 vector<int> nums(5); // 先にスペースを確保しておく必要がある
 iota(nums.begin(), nums.end(), 0); // 0~4 のシーケンスを生成
+
+
+// 文字列右回転
+string str_rotate_right(string str) {
+    int len = str.size();
+    if( len <= 1 ) {
+        return str;
+    }
+    char c = str[len-1];
+    for(int i = len - 1; i > 0; --i) {
+        str[i] = str[i-1];
+    }
+    str[0] = c;
+    return str;
+}

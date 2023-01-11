@@ -4,6 +4,7 @@
     "*.erb": "erb",
     "iostream": "cpp",
     "ostream": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "string": "cpp"
   },
 }

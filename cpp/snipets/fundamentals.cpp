@@ -2,10 +2,10 @@
 using namespace std;
 
 /* データ型 */
-{
+void dataType() {
     /* 配列 */
     // 初期化: 要素数の指定をしておくと `.at` でアクセス出来るようになる
-    vector<int> vec(N);
+    vector<int> vec(10);
 
     // 2次元 : vector<vector<要素の型>> 変数名(1次元の要素数, vector<要素の型>(2次元の要素数, 初期値)) 初期値は省略可能
     vector<vector<int>> data(3, vector<int>(4)); // 3 × 4 の int型2次元配列
@@ -15,13 +15,13 @@ using namespace std;
     vec = {1,2,3};
 
     // 長さを求める
-    vec.size()
+    vec.size();
 
     // 値の参照 (要素への参照を返すのでそのまま変更可能)
     vec.at(0); // [] は範囲外の場合エラーを返さないので非推奨
 
     // 値の削除
-    v.erase(cbegin(v) + 1); // v.at(1) の要素を削除
+    vec.erase(cbegin(vec) + 1); // v.at(1) の要素を削除
 
     // 連番 シーケンス 生成
     vector<int> nums(5);
@@ -37,18 +37,16 @@ using namespace std;
     /* ペア */
     pair<int, int> intPair;
     pair<int, char> intAndStrPair(1, '1');
-    pair<int, char> pairByMakePair = make_pair(1, "1");
-    intPair.first, intPair.second
+    pair<int, char> pairByMakePair = make_pair(1, '1');
+    intPair.first, intPair.second;
 
 
     /* tuple */
     // N個の値を持つデータ型。 2つの値のペアである pair も存在する
     tuple<int, string, bool> data(1, "hello", true);
-    data = make_tuple(1, "hello", true); // 型宣言が不要なパターン
+    make_tuple(1, "hello", true); // 型宣言が不要なパターン
     // unpack
-    int a;
-    string s;
-    bool f;
+    int a; string s; bool f;
     tie(a, s, f) = data;
     // get: get<K> のKは定数でなければならない
     get<1>(data);
@@ -61,8 +59,7 @@ using namespace std;
     // [] を使うと値が存在しない場合生成されてしまうため避けたほうが無難
     score.at("alice");
     // Keyの値が小さい順にループ (p は pair 型)
-    for (auto p : 変数名)
-
+    for (auto p : vec) cout << p;
 
     /* キュー */
     // 初期化: queue<型> 変数名;
@@ -72,13 +69,14 @@ using namespace std;
 }
 
 /* 操作系 */
-{
+void control() {
+    vector<int> vec(10);
     /* ソート */
     sort(vec.begin(), vec.end());
     // ソート(降順): sort 後に reverse
     reverse(vec.begin(), vec.end());
     // ソート(降順)
-    sort(a.begin(), a.end(), greater<int>());
+    sort(vec.begin(), vec.end(), greater<int>());
 
 
     // pair のソート
@@ -95,12 +93,13 @@ using namespace std;
     for (auto x : vec) cout << x << endl; // auto を使うと型を明示する必要がなくなる
 
     /* switch case 文 */
+    int num = 1;
     switch (num) {
       case 1:
         cout << "1";
         break;
       default:
-        cout << "err":
+        cout << "error";
         break;
     }
 
@@ -113,11 +112,11 @@ using namespace std;
 
 
 /* 型関連 */
-{
+void Type(){
     /* auto */
     // 型定義の省略。初期化を伴って変数を宣言する場合や範囲for文で使える
     auto a = "hello";
-    auto vec_copy = vector;
+    auto vec_copy = vec;
     for (auto elem: vec_copy) cout << elem << endl; // elem は int型
 
     /* キャスト */

@@ -146,6 +146,7 @@ void Type(){
   S.substr(開始位置, 取り出す長さ);
   // char ⇔ int
   int('a'), int('z'), char(97), char(122); // 97~122, a~z
+  int('A'), int('Z'), char(64), char(90);
 }
 
 /* ビット演算 */

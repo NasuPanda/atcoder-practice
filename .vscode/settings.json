@@ -26,6 +26,8 @@
     "string_view": "cpp",
     "unordered_map": "cpp",
     "unordered_set": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "ios": "cpp",
+    "iomanip": "cpp"
   },
 }

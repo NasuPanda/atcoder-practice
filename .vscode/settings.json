@@ -28,7 +28,8 @@
     "unordered_set": "cpp",
     "valarray": "cpp",
     "ios": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "random": "cpp"
   },
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": false,

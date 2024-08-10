@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.html": "html",
+    "*.erb": "erb",
+    "ostream": "cpp",
+    "string": "cpp",
+    "iostream": "cpp",
+    "vector": "cpp"
+  }
+}

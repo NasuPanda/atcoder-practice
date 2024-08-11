@@ -3,6 +3,7 @@
     "*.html": "html",
     "*.erb": "erb",
     "iostream": "cpp",
-    "__locale": "cpp"
+    "__locale": "cpp",
+    "ostream": "cpp"
   }
 }

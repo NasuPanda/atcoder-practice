@@ -7,24 +7,9 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main() {
-    int D, N;
-    cin >> D >> N;
-    ll ans;
-    switch (D)
-    {
-    case 0:
-        if (N == 100) N++;
-        ans = N;
-        break;
-    case 1:
-        if (N == 100) N++;
-        ans = 100 * N;
-        break;
-    case 2:
-        if (N == 100) N++;
-        ans = 100 * 100 * N;
-        break;
-    }
-    cout << ans << endl;
+    ll N, A, B;
+    cin >> N >> A >> B;
+    if ((B - A)% 2 == 0) cout << (B - A) / 2 << endl;
+    else cout << min(A-1, N-B) + 1 + (B - A - 1) / 2 << endl;
     return 0;
 }

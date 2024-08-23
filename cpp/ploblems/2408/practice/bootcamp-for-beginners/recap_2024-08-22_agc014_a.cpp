@@ -7,29 +7,26 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main() {
-    string S;
-    cin >> S;
-    ll K;
-    cin >> K;
-    // If all from S[0] to S[K] is 1, the answer is 1.
-    int sum=0;
-
-    if (K <= S.size()) {
-        rep(i, 0, K) {
-            if (S[i] == '1') sum++;
-        }
-        if (sum == K) {
-            cout << '1' << endl;
+    ll A, B, C;
+    cin >> A >> B >> C;
+    if (A % 2 == 1 || B % 2 == 1 || C % 2 == 1) {
+        cout << 0 << endl;
+        return 0;
+    }
+    int ans = 0;
+    rep(i, 0, 100) {
+        ans++;
+        ll tmpA = (B + C) / 2;
+        ll tmpB = (C + A) / 2;
+        ll tmpC = (A + B) / 2;
+        A = tmpA;
+        B = tmpB;
+        C = tmpC;
+        if (A % 2 == 1 || B % 2 == 1 || C % 2 == 1) {
+            cout << ans << endl;
             return 0;
         }
     }
-    char ans;
-    rep(i, 0, S.size()) {
-        if (S[i] != '1') {
-            ans = S[i];
-            break;
-            }
-    }
-    cout << ans << endl;
+    cout << -1 << endl;
     return 0;
 }

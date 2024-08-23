@@ -7,24 +7,18 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main() {
-    int D, N;
-    cin >> D >> N;
-    ll ans;
-    switch (D)
-    {
-    case 0:
-        if (N == 100) N++;
-        ans = N;
-        break;
-    case 1:
-        if (N == 100) N++;
-        ans = 100 * N;
-        break;
-    case 2:
-        if (N == 100) N++;
-        ans = 100 * 100 * N;
-        break;
+    int N;
+    cin >> N;
+    vector<ll> H(N);
+    for (auto &h : H) cin >> h;
+    H[0]--;
+    rep(i, 1, N) {
+        if (H[i-1] > H[i]) {
+            cout << "No" << endl;
+            return 0;
+        }
+        if (H[i-1] < H[i]) H[i]--;
     }
-    cout << ans << endl;
+    cout << "Yes" << endl;
     return 0;
 }

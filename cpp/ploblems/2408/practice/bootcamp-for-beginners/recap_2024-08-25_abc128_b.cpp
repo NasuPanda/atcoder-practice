@@ -7,20 +7,16 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main() {
-    int N; cin>>N;
-    vector<int> A(N);
-    vector<int> P(N), Q(N);
-    rep(i, 0, N) cin >> P[i];
-    rep(i, 0, N) cin >> Q[i];
-    // rep(i, 0, N) A[i] = i+1;
-    iota(all(A), 1);
-    int a, b, count=0;
-    do {
-        count++;
-        // rep (i, 0, N) cout << A[i] << " ";
-        if (A == P) a = count;
-        if (A == Q) b = count;
-    } while (next_permutation(all(A)));
-    cout << abs(a - b) << endl;
+    int N;
+    cin >> N;
+    vector<pair<pair<string, int>, int>> scores(N);
+    rep(i, 0, N) {
+        string s;
+        int p;
+        cin >> s >> p;
+        scores[i] = make_pair(make_pair(s, -p), i+1);
+    }
+    sort(all(scores));
+    rep(i, 0, N) cout << scores[i].second << endl;
     return 0;
 }

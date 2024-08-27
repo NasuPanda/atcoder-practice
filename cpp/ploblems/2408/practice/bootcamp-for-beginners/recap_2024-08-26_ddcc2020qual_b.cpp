@@ -7,16 +7,17 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main() {
-    int N; cin>>N;
-    vector<int> a(N); rep(i,0,N) {cin>>a[i];}
-    vector<int> count(100005);
-    rep(i,0,N) {
-        int val = a[i];
-        if (val-1 >= 0) count[val-1]++;
-        count[val]++;
-        count[val+1]++;
+    ll N;
+    cin >> N;
+    ll S = 0;
+    vector<ll> A(N);
+    rep(i, 0, N) {cin>>A[i]; S+=A[i];}
+
+    ll minX=S,sum=0;
+    rep(i, 0, N) {
+        sum += A[i];
+        chmin(minX, abs(sum - (S - sum)));
     }
-    sort(all(count));
-    cout << count[100004] << endl;
+    cout << minX << endl;
     return 0;
 }

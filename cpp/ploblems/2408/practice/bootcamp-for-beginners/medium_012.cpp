@@ -12,40 +12,62 @@ int main() {
     vector<string> A(H);
     rep(i,0,H) cin >> A[i];
 
-    int whiteCount;
-
+    // TODO 別解
+    vector<bool> rows(H, false), columns(W, false);
     rep(h, 0, H) {
-        whiteCount=0;
         rep(w, 0, W) {
-            if (A[h][w] == '.' || A[h][w] == ' ') whiteCount++;
-        }
-        if (whiteCount == W) {
-            rep(w, 0, W) A[h][w] = ' ';
-        }
-    }
-    rep(w, 0, W) {
-        whiteCount=0;
-        rep(h, 0, H) {
-            if (A[h][w] == '.' || A[h][w] == ' ') whiteCount++;
-        }
-        if (whiteCount == H) {
-            rep(h, 0, H) A[h][w] = ' ';
-        }
-    }
-
-    int emptyCount;
-    rep(h, 0, H) {
-        emptyCount=0;
-        rep(w, 0, W) {
-            if (A[h][w] == ' ') emptyCount++;
-        }
-        if (emptyCount != W) {
-            rep(w, 0, W) {
-                if (A[h][w] != ' ') cout << A[h][w];
+            if (A[h][w] == '#') {
+                rows[h] = true;
+                columns[w] = true;
             }
-            cout << endl;
         }
     }
+    bool isPrinted=false;
+    rep(h, 0, H) {
+        isPrinted = false;
+        rep(w, 0, W) {
+            if (rows[h] & columns[w]) {
+                cout << A[h][w];
+                isPrinted = true;
+            }
+        }
+        if (isPrinted) cout << endl;
+    }
+
+    // int whiteCount;
+
+    // rep(h, 0, H) {
+    //     whiteCount=0;
+    //     rep(w, 0, W) {
+    //         if (A[h][w] == '.' || A[h][w] == ' ') whiteCount++;
+    //     }
+    //     if (whiteCount == W) {
+    //         rep(w, 0, W) A[h][w] = ' ';
+    //     }
+    // }
+    // rep(w, 0, W) {
+    //     whiteCount=0;
+    //     rep(h, 0, H) {
+    //         if (A[h][w] == '.' || A[h][w] == ' ') whiteCount++;
+    //     }
+    //     if (whiteCount == H) {
+    //         rep(h, 0, H) A[h][w] = ' ';
+    //     }
+    // }
+
+    // int emptyCount;
+    // rep(h, 0, H) {
+    //     emptyCount=0;
+    //     rep(w, 0, W) {
+    //         if (A[h][w] == ' ') emptyCount++;
+    //     }
+    //     if (emptyCount != W) {
+    //         rep(w, 0, W) {
+    //             if (A[h][w] != ' ') cout << A[h][w];
+    //         }
+    //         cout << endl;
+    //     }
+    // }
 
     return 0;
 }

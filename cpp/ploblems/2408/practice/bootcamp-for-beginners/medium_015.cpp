@@ -7,7 +7,21 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main() {
+    string KEYENCE_STRING = "keyence";
+    string str; cin >> str;
+    if (str == KEYENCE_STRING) {cout<<"YES"; return 0;}
 
-
+    int n = str.size();
+    rep(i, 0, n) {
+        rep(j, i, n) {
+            string S = "";
+            rep(k, 0, n) {
+                if (i<=k && k<=j) continue; // The deleted substrings
+                else S.push_back(str[k]);
+            }
+            if (S == KEYENCE_STRING) {cout<<"YES"; return 0;}
+        }
+    }
+    cout << "NO" << endl;
     return 0;
 }

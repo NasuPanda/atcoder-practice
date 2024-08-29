@@ -7,16 +7,8 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main() {
-    int R, G, B, N;
-    cin >> R >> G >> B >> N;
-
-    ll ans=0;
-    rep(r, 0, N/R + 1) {
-        rep(g, 0, N/G + 1) {
-            int remain = N - r*R - g*G;
-            if (remain >= 0 && remain % B == 0) ans++;
-        }
-    }
-    cout << ans << endl;
+    ll N,A,B; cin >> N >> A >> B;
+    if ((B - A) % 2 == 0) cout << (B - A) / 2 << endl;
+    else cout << min(A-1, N-B) + 1 + (B - A - 1) / 2 << endl;
     return 0;
 }

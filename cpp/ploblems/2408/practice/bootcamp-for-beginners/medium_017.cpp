@@ -7,7 +7,12 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main() {
+    ll N, T; cin >> N >> T;
+    vector<ll> t(N); rep(i,0,N) cin>>t[i];
 
-
+    ll ans=0;
+    rep(i, 0, N-1) ans += min(t[i+1]-t[i], T);
+    ans += T; // For the last person.
+    cout << ans << endl;
     return 0;
 }

@@ -7,7 +7,20 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main() {
-
-
+    int N; cin >> N;
+    vector<ll> A(N); rep(i,0,N) cin>>A[i];
+    int ans=1;
+    bool isIncreasing=true;
+    rep(i, 1, N) {
+        if (isIncreasing) {
+            if (A[i-1] <= A[i]) continue;
+            else {ans++; isIncreasing = !isIncreasing;}
+        }
+        else {
+            if (A[i-1] >= A[i]) continue;
+            else {ans++; isIncreasing = !isIncreasing;}
+        }
+    }
+    cout << ans << endl;
     return 0;
 }

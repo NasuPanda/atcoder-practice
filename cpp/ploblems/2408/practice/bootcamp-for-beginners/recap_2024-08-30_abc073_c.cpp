@@ -8,7 +8,13 @@ template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } 
 
 int main() {
     int N; cin >> N;
-    string s, t; cin >> s >> t;
-    int a = s.size(), b = t.size();
+    ll A;
+    set<ll> ans;
+    rep(i, 0, N) {
+        cin >> A;
+        if (ans.count(A)) ans.erase(A);
+        else ans.insert(A);
+    }
+    cout << ans.size() << endl;
     return 0;
 }

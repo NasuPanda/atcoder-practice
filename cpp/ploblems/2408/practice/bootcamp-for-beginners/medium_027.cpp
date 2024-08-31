@@ -9,6 +9,19 @@ template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } 
 int main() {
     int N; cin >> N;
     string s, t; cin >> s >> t;
-    int a = s.size(), b = t.size();
+    string str = s + t;
+    int ans = str.size();
+    rep(i, N, 2*N) {
+        rep(j, i, 2*N) {
+            string S;
+            rep(k, 0, 2*N) {
+                if (i <= k && k <= j) continue;
+                else S.push_back(str[k]);
+            }
+            int currentSize = S.size();
+            if (S.substr(0, N) == s && S.substr(currentSize - N, N) == t) chmin(ans, currentSize);
+        }
+    }
+    cout << ans << endl;
     return 0;
 }

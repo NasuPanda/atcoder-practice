@@ -7,7 +7,9 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main() {
-    
-
+    string S; cin >> S;
+    if (S[0] == 'R') cout << "Yes" << endl;
+    else if (S[1] == 'R' && S[2] == 'M') cout << "Yes" << endl;
+    else cout << "No" << endl;
     return 0;
 }
